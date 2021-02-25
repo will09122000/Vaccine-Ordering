@@ -1,6 +1,6 @@
 #include <order.hpp>
 
-class order {
+class Order {
     public:
         int id;
         string name;

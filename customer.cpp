@@ -1,8 +1,13 @@
 #include <customer.hpp>
 
-class customer {
+class Customer {
     public:
         int id;
         string name;
-        int orderQuantity;
+        int orderQuantity = 0;
+
+        Customer::Customer(int id, string name) {
+            this->id = id;
+            this->name = name;
+        }
 };
