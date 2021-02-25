@@ -2,7 +2,10 @@
 
 int main(int argc, char **argv) {
     validateArguments(argc, argv);
-    readInput(argc, argv);
+    vector<string> lines = readInput(argc, argv);
+
+    for (std::vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
+    std::cout << *i << "\n";
 
     customer testCustomer;
     testCustomer.myNum = 10;

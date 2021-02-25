@@ -25,10 +25,10 @@ void validateArguments(int argc, char **argv)
 
     returns: null
 */
-void readInput(int argc, char **argv)
+vector<string> readInput(int argc, char **argv)
 {
-    string lines[50];
-    int counter = 0;
+    vector<string> lines;
+
     ifstream inputFile;
     inputFile.exceptions ( ifstream::badbit );
     try {
@@ -36,20 +36,15 @@ void readInput(int argc, char **argv)
         string line; 
         while (!inputFile.eof())
         {
-            //cout << line + "\n";
-            getline(inputFile, lines[counter]);
-            counter++;
+            string line;
+            getline(inputFile, line);
+            lines.push_back(line);
         }
     }
     catch (const ifstream::failure& e) {
         cout << "Error opening or reading file\n";
     }
 
-    for (int i=0; i < 50; i++) {
-        if (!lines[i].empty()) { // print only if there is something in the current line
-            cout << lines[i] << "\n";
-        }
-    }
-
     inputFile.close();
+    return lines;
 }
