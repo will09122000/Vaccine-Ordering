@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
     cout << customers[1].id << customers[1].name << "\n";
     cout << customers[2].id << customers[2].name << "\n";
 
-    cout << orders[0].date << orders[0].type << orders[0].customerNumber << orders[0].quantity << "\n";
+    cout << orders[0].date + " " << orders[0].type + " " << orders[0].customerNumber + " " << orders[0].quantity + " " << "\n";
 
     return 0;
 }
