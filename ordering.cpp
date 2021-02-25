@@ -17,5 +17,7 @@ int main(int argc, char **argv) {
     order testOrder;
     testOrder.id = 1000;
 
+    cout << testCustomer.id << testOrder.id << "\n";
+
     return 0;
 }
