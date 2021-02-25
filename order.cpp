@@ -11,6 +11,6 @@ class Order {
             this->date = date;
             this->type = type;
             this->customerNumber = customerNumber;
-            this-> quantity = quantity;
+            this->quantity = quantity;
         }
 };
