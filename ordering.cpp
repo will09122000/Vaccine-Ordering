@@ -22,9 +22,7 @@ int main(int argc, char **argv) {
                                        line.at(9),
                                        stoi(line.substr(10, 13)),
                                        stoi(line.substr(14, 16))));
-                cout << line.substr(1, 5) << "\n";
-                cout << line.substr(6, 10) << "\n";
-                cout << line.substr(11, 16) << "\n";
+                cout << line.substr(6, 9) << "\n";
                 break;
             // End-of-day
             case 'E':
