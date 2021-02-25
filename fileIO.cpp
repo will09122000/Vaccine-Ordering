@@ -31,9 +31,9 @@ void readInput(int argc, char **argv)
     ifstream inputFile;
     inputFile.exceptions ( ifstream::badbit );
     try {
-        std::ifstream file(argv[1]);
+        std::ifstream inputFile(argv[1]);
         std::string line; 
-        while (std::getline(file, line))
+        while (std::getline(inputFile, line))
         {
             cout << line + "\n";
         }
