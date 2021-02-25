@@ -1,6 +1,6 @@
-#include <customer.hpp>
+#include <order.hpp>
 
-class customer {
+class order {
     public:
         int id;
         string name;

@@ -4,11 +4,18 @@ int main(int argc, char **argv) {
     validateArguments(argc, argv);
     vector<string> lines = readInput(argc, argv);
 
-    for (std::vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
-    std::cout << *i << "\n";
+    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
+    {
+        cout << *i << "\n";
+
+    }
+
 
     customer testCustomer;
-    testCustomer.myNum = 10;
+    testCustomer.id = 1;
+
+    order testOrder;
+    testOrder.id = 1000;
 
     return 0;
 }
