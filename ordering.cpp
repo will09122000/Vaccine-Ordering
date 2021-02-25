@@ -38,9 +38,9 @@ int main(int argc, char **argv) {
         }
     }
 
-    cout << customersTest[1].name << "\n";
-    cout << customersTest[2].name << "\n";
-    cout << customersTest[3].name << "\n";
+    cout << customersTest.at(1).name << "\n";
+    cout << customersTest.at(2).name << "\n";
+    cout << customersTest.at(3).name << "\n";
 
     cout << orders[0].date << " " << orders[0].type << " " << orders[0].customerNumber << " " << orders[0].quantity << "\n";
     cout << orders[1].date << " " << orders[1].type << " " << orders[1].customerNumber << " " << orders[1].quantity << "\n";
