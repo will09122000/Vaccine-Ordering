@@ -1,0 +1,3 @@
+g++ -std=c++11 -I./ -c ordering.cpp -o ordering.o
+g++ -std=c++11 -I./ -c fileIO.cpp -o fileIO.o
+g++ ordering.o -o ordering
