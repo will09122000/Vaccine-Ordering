@@ -23,6 +23,7 @@ int main(int argc, char **argv) {
             }
             // New sale
             case 'S':
+            {
                 orders.push_back(Order(stoi(line.substr(1, 8)),
                                        line.at(9),
                                        stoi(line.substr(10, 4)),
@@ -30,15 +31,16 @@ int main(int argc, char **argv) {
                 if (line.at(9) == 'X')
                     orders[3].ship();
                 break;
+            }
             // End-of-day
             case 'E':
                 break;
         }
     }
 
-    cout << customers[0].id << " " << customers[0].name << "\n";
-    cout << customers[1].id << " " << customers[1].name << "\n";
-    cout << customers[2].id << " " << customers[2].name << "\n";
+    cout << customersTest[1].name << "\n";
+    cout << customersTest[2].name << "\n";
+    cout << customersTest[3].name << "\n";
 
     cout << orders[0].date << " " << orders[0].type << " " << orders[0].customerNumber << " " << orders[0].quantity << "\n";
     cout << orders[1].date << " " << orders[1].type << " " << orders[1].customerNumber << " " << orders[1].quantity << "\n";
