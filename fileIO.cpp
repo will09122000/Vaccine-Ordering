@@ -47,7 +47,7 @@ void readInput(int argc, char **argv)
 
     for (int i=0; i < 50; i++) {
         if (!lines[i].empty()) { // print only if there is something in the current line
-            cout << lines[i];
+            cout << lines[i] << "\n";
         }
     }
 
