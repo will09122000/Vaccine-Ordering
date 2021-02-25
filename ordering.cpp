@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
         switch(line.front()) {
             // New customer
             case 'C':
-                customers.push_back(Customer(stoi (line.substr(2, 5)), line.substr(6, 45)));
+                customers.push_back(Customer(stoi (line.substr(1, 4)), line.substr(5, 44)));
                 break;
             // New sale
             case 'S':
