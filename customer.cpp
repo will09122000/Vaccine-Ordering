@@ -11,6 +11,4 @@ class Customer {
             this->name = name;
         }
 
-        Customer() {}
-
 };

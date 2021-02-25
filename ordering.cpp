@@ -9,16 +9,18 @@ int main(int argc, char **argv) {
 
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
     {
-        Customer newCustomer;
         string line = *i;
         switch(line.front()) {
             // New customer
             case 'C':
-                newCustomer = Customer(stoi(line.substr(1, 4)),
-                                            line.substr(5, 39));
+            {
+                int customerID = stoi(line.substr(1, 4));
+                Customer newCustomer = Customer(customerID,
+                                                line.substr(5, 39));
                 customers.push_back(newCustomer);
-                customersTest.insert({ stoi(line.substr(1, 4)), newCustomer });
+                customersTest.insert({ customerID, newCustomer });
                 break;
+            }
             // New sale
             case 'S':
                 orders.push_back(Order(stoi(line.substr(1, 8)),
