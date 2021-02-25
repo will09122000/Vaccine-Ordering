@@ -35,7 +35,7 @@ void readInput(int argc, char **argv)
         std::string line; 
         while (std::getline(file, line))
         {
-            cout << line;
+            cout << line + "\n";
         }
     }
     catch (const ifstream::failure& e) {
