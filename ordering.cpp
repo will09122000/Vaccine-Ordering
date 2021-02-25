@@ -14,15 +14,14 @@ int main(int argc, char **argv) {
             // New customer
             case 'C':
                 customers.push_back(Customer(stoi (line.substr(1, 4)),
-                                                   line.substr(5, 44)));
+                                                   line.substr(5, 39)));
                 break;
             // New sale
             case 'S':
                 orders.push_back(Order(stoi(line.substr(1, 8)),
                                        line.at(9),
-                                       stoi(line.substr(10, 13)),
-                                       stoi(line.substr(14, 16))));
-                cout << line.substr(7, 8) << "\n";
+                                       stoi(line.substr(10, 4)),
+                                       stoi(line.substr(14, 3))));
                 break;
             // End-of-day
             case 'E':
