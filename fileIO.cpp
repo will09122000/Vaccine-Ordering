@@ -27,19 +27,28 @@ void validateArguments(int argc, char **argv)
 */
 void readInput(int argc, char **argv)
 {
-    
+    string lines[50];
+    int counter = 0;
     ifstream inputFile;
     inputFile.exceptions ( ifstream::badbit );
     try {
         ifstream inputFile(argv[1]);
         string line; 
-        while (std::getline(inputFile, line))
+        while (!inputFile.eof())
         {
-            cout << line + "\n";
+            //cout << line + "\n";
+            getline(inputFile, lines[counter]);
+            counter++;
         }
     }
     catch (const ifstream::failure& e) {
-        cout << "Exception opening/reading file";
+        cout << "Error opening or reading file\n";
+    }
+
+    for (int i=0; i < 50; i++) {
+        if (!lines[i].empty()) { // print only if there is something in the current line
+            cout << lines[i];
+        }
     }
 
     inputFile.close();
