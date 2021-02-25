@@ -12,24 +12,20 @@ int main(int argc, char **argv) {
         switch(line.front()) {
             // New customer
             case 'C':
-                cout << line.front() << "\n";
                 customers.push_back(Customer(stoi (line.substr(2, 5)), line.substr(6, 45)));
                 break;
             // New sale
             case 'S':
-                cout << line.front() << "\n";
                 break;
             // End-of-day
             case 'E':
-                cout << line.front() << "\n";
                 break;
         }
     }
 
-
-    Order testOrder;
-    testOrder.id = 1000;
-
+    cout << customers[0].id << customers[0].name << "\n";
+    cout << customers[1].id << customers[1].name << "\n";
+    cout << customers[2].id << customers[2].name << "\n";
 
     return 0;
 }
