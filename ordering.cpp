@@ -7,9 +7,19 @@ int main(int argc, char **argv) {
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
     {
         cout << *i << "\n";
-
+        string line = *i;
+        switch(line.front()) {
+            case 'C':
+                cout << line.front() << "\n";
+                break;
+            case 'S':
+                cout << line.front() << "\n";
+                break;
+            case 'E':
+                cout << line.front() << "\n";
+                break;
+        }
     }
-
 
     customer testCustomer;
     testCustomer.id = 1;
