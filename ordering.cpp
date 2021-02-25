@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
                 break;
             // New sale
             case 'S':
-            cout << line << "\n";
+                cout << line.substr(10, 13) << "\n";
                 orders.push_back(Order(stoi(line.substr(1, 8)),
                                        line.at(9),
                                        stoi(line.substr(10, 13)),
