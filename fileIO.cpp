@@ -27,12 +27,12 @@ void validateArguments(int argc, char **argv)
 */
 void readInput(int argc, char **argv)
 {
-    using namespace std;
+    
     ifstream inputFile;
     inputFile.exceptions ( ifstream::badbit );
     try {
-        std::ifstream inputFile(argv[1]);
-        std::string line; 
+        ifstream inputFile(argv[1]);
+        string line; 
         while (std::getline(inputFile, line))
         {
             cout << line + "\n";
