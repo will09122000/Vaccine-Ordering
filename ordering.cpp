@@ -4,17 +4,20 @@ int main(int argc, char **argv) {
     validateArguments(argc, argv);
     vector<string> lines = readInput(argc, argv);
     vector<Customer> customers;
+    unordered_map<int, Customer> customersTest;
     vector<Order> orders;
 
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
     {
-        //cout << *i << "\n";
+        Customer newCustomer;
         string line = *i;
         switch(line.front()) {
             // New customer
             case 'C':
-                customers.push_back(Customer(stoi (line.substr(1, 4)),
-                                                   line.substr(5, 39)));
+                newCustomer = Customer(stoi(line.substr(1, 4)),
+                                            line.substr(5, 39));
+                customers.push_back(newCustomer);
+                customersTest.insert({ stoi(line.substr(1, 4)), newCustomer });
                 break;
             // New sale
             case 'S':
@@ -22,6 +25,8 @@ int main(int argc, char **argv) {
                                        line.at(9),
                                        stoi(line.substr(10, 4)),
                                        stoi(line.substr(14, 3))));
+                if (line.at(9) == 'X')
+                    orders[3].ship();
                 break;
             // End-of-day
             case 'E':
