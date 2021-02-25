@@ -6,7 +6,6 @@ class Order {
         char type;
         int customerNumber;
         int quantity;
-        Customer customer;
 
         void ship() {
             cout << "Ship Orders!\n";
