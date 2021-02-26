@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
     validateArguments(argc, argv);
     vector<string> lines = readInput(argc, argv);
-    customerMap customers;
+    vector<Customer> customers;
     vector<Order> orders;
 
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
@@ -28,12 +28,10 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void addCustomer(string line, customerMap & customers)
+void addCustomer(string line, vector<Customer> & customers)
 {
-    int customerID = stoi(line.substr(1, 4));
-    Customer newCustomer = Customer(customerID, line.substr(5, 39));
-    customers.insert({ customerID, newCustomer });
-    cout << "OP: customer " << setfill('0') << std::setw(4) << customers.at(customerID).id << " added\n";
+    customers.push_back(Customer(stoi(line.substr(1, 4)), line.substr(5, 39)));
+    cout << "OP: customer " << setfill('0') << setw(4) << customers.back().id << " added\n";
 }
 
 void addOrder(string line, vector<Order> & orders)
@@ -43,14 +41,20 @@ void addOrder(string line, vector<Order> & orders)
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
-    cout << "OP: customer " << setfill('0') << std::setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
+    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
 
-void endDay(string line, customerMap & customers, vector<Order> & orders)
+void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
 {
-    cout << "OP: end of day " << line.substr(1, 8) << ":\n";
-    for (auto& customer: customers)
+    string date = line.substr(1, 8);
+    cout << "OP: end of day " << date << ":\n";
+    for (auto const& customer: customers) {
     {
-        cout << customer.first << "\n";
+        int totalOrderQuantity = 0;
+        for (auto const& order: orders) {
+            if (order.customerID == customer.id)
+                totalOrderQuantity += order.quantity;
+        }
+        cout << "OP: customer " << setfill('0') << setw(4) << customer.id << ": shipped quantity " << totalOrderQuantity << "\n";
     }
 }
