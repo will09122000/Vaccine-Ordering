@@ -13,10 +13,7 @@ int main(int argc, char **argv) {
             // New customer
             case 'C':
             {
-                int customerID = stoi(line.substr(1, 4));
-                Customer newCustomer = Customer(customerID, line.substr(5, 39));
-                customers.insert({ customerID, newCustomer });
-                cout << "New Customer: " << customers.at(customerID).name << "\n";
+                addCustomer(line, customers);
                 break;
             }
             // New sale
@@ -46,4 +43,12 @@ int main(int argc, char **argv) {
     cout << orders[2].date << " " << orders[2].type << " " << orders[2].customerNumber << " " << orders[2].quantity << "\n";
 
     return 0;
+}
+
+void addCustomer(string line, unordered_map<int, Customer> customers)
+{
+    int customerID = stoi(line.substr(1, 4));
+    Customer newCustomer = Customer(customerID, line.substr(5, 39));
+    customers.insert({ customerID, newCustomer });
+    cout << "New Customer: " << customers.at(customerID).name << "\n";
 }
