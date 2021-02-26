@@ -20,17 +20,10 @@ int main(int argc, char **argv) {
                 break;
             // End-of-day
             case 'E':
-            {
-                cout << "End-of-day" << "\n";
+                endDay(line, customers, orders);
                 break;
-
-            }
         }
     }
-
-    //cout << orders[0].date << " " << orders[0].type << " " << orders[0].customerNumber << " " << orders[0].quantity << "\n";
-    //cout << orders[1].date << " " << orders[1].type << " " << orders[1].customerNumber << " " << orders[1].quantity << "\n";
-    //cout << orders[2].date << " " << orders[2].type << " " << orders[2].customerNumber << " " << orders[2].quantity << "\n";
 
     return 0;
 }
@@ -49,6 +42,11 @@ void addOrder(string line, vector<Order> & orders)
                            line.at(9),
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
-    string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity");
+    string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << std::setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
+}
+
+void endDay(string line, customerMap & customers, vector<Order> & orders)
+{
+    cout << "OP: end of day " << line.substr(1, 8) << ":\n";
 }
