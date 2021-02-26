@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
             case 'S':
                 addOrder(line, orders);
                 if (orders.back().type == 'X')
-                    sendOrder(orders.back().customerID, orders, invoiceNumber);
+                    sendOrders(orders.back().customerID, orders, invoiceNumber);
                 break;
             // End-of-day
             case 'E':
@@ -27,7 +27,6 @@ int main(int argc, char **argv) {
                 break;
         }
     }
-
     return 0;
 }
 
@@ -47,7 +46,7 @@ void addOrder(string line, vector<Order> & orders)
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
 
-void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber)
+void sendOrders(int customerID, vector<Order> & orders, int & invoiceNumber)
 {
     int totalOrderQuantity = 0;
     int size = orders.size();
@@ -80,7 +79,6 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders, i
     cout << "OP: end of day " << date << "\n";
     for (auto const& customer: customers)
     {
-        sendOrder(customer.id, orders, invoiceNumber);
+        sendOrders(customer.id, orders, invoiceNumber);
     }
-    cout << "\n";
 }
