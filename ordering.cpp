@@ -48,10 +48,11 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
 {
     string date = line.substr(1, 8);
     cout << "OP: end of day " << date << ":\n";
-    for (auto const& customer: customers) {
+    for (auto const& customer: customers)
     {
         int totalOrderQuantity = 0;
-        for (auto const& order: orders) {
+        for (auto const& order: orders)
+        {
             if (order.customerID == customer.id)
                 totalOrderQuantity += order.quantity;
         }
