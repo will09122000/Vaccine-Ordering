@@ -26,6 +26,7 @@ int main(int argc, char **argv) {
                 endDay(line, customers, orders, invoiceNumber);
                 break;
         }
+        cout << "-------------------------------------------------------------------------\n";
     }
     return 0;
 }
