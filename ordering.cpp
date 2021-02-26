@@ -5,6 +5,7 @@ int main(int argc, char **argv) {
     vector<string> lines = readInput(argc, argv);
     vector<Customer> customers;
     vector<Order> orders;
+    int invoiceNumber = 1000;
 
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
@@ -20,7 +21,7 @@ int main(int argc, char **argv) {
                 break;
             // End-of-day
             case 'E':
-                endDay(line, customers, orders);
+                endDay(line, customers, orders, invoiceNumber);
                 break;
         }
     }
@@ -44,10 +45,10 @@ void addOrder(string line, vector<Order> & orders)
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
 
-void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
+void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
 {
     string date = line.substr(1, 8);
-    cout << "OP: end of day " << date << ":\n";
+    cout << "OP: end of day " << date << "\n";
     for (auto const& customer: customers)
     {
         int totalOrderQuantity = 0;
@@ -66,8 +67,11 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
             }
         }
         if (totalOrderQuantity > 0)
+        {
             cout << "OP: customer " << setfill('0') << setw(4) << customer.id << ": shipped quantity " << totalOrderQuantity << "\n";
-        
+            cout << "SC: customer " << setfill('0') << setw(4) << customer.id << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
+            invoiceNumber++;
+        }
     }
     cout << "\n";
 }

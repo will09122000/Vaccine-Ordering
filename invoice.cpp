@@ -1,17 +1,13 @@
-#include <order.hpp>
+#include <invoice.hpp>
 
-class Order {
+class Invoice {
     public:
+        static int id;
         int date;
-        char type;
         int customerID;
         int quantity;
 
-        void ship() {
-            cout << "Ship Orders!\n";
-        }
-
-        Order(int date, char type, int customerID, int quantity) {
+        Invoice(int date, char type, int customerID, int quantity) {
             this->date = date;
             this->type = type;
             this->customerID = customerID;
