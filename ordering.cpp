@@ -69,4 +69,5 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
             cout << "OP: customer " << setfill('0') << setw(4) << customer.id << ": shipped quantity " << totalOrderQuantity << "\n";
         
     }
+    cout << "\n";
 }
