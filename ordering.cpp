@@ -14,6 +14,7 @@ int main(int argc, char **argv) {
             case 'C':
             {
                 addCustomer(line, customers);
+                cout << "OP: customer " << customers.at(stoi(line.substr(1, 4))).id << " added\n";
                 break;
             }
             // New sale
@@ -50,5 +51,5 @@ void addCustomer(string line, customerMap & customers)
     int customerID = stoi(line.substr(1, 4));
     Customer newCustomer = Customer(customerID, line.substr(5, 39));
     customers.insert({ customerID, newCustomer });
-    cout << "OP: customer " << customers.at(customerID).id << " added\n";
+    
 }
