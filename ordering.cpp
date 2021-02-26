@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
     customerMap customers;
     vector<Order> orders;
 
-    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
+    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
         string line = *i;
         switch(line.front()) {
@@ -49,4 +49,8 @@ void addOrder(string line, vector<Order> & orders)
 void endDay(string line, customerMap & customers, vector<Order> & orders)
 {
     cout << "OP: end of day " << line.substr(1, 8) << ":\n";
+    for (auto& customer: customers)
+    {
+        cout << customer.first;
+    }
 }
