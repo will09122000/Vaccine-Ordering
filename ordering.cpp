@@ -18,12 +18,8 @@ int main(int argc, char **argv) {
             // New order
             case 'S':
                 addOrder(line, orders);
-                cout << orders.back().type << "\n";
-                if (orders.back().type == 'E')
-                {
+                if (orders.back().type == 'X')
                     sendOrder(orders.back().customerID, orders, invoiceNumber);
-                    cout << "EXPRESS ORDER!\n";
-                }
                 break;
             // End-of-day
             case 'E':
