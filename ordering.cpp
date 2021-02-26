@@ -51,6 +51,6 @@ void endDay(string line, customerMap & customers, vector<Order> & orders)
     cout << "OP: end of day " << line.substr(1, 8) << ":\n";
     for (auto& customer: customers)
     {
-        cout << customer.first;
+        cout << customer.first << "\n";
     }
 }
