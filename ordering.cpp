@@ -51,11 +51,22 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders)
     for (auto const& customer: customers)
     {
         int totalOrderQuantity = 0;
-        for (auto const& order: orders)
+        int size = orders.size();
+        for (int i = 0; i < size; ++i)
         {
-            if (order.customerID == customer.id)
-                totalOrderQuantity += order.quantity;
+            if (orders[i].customerID == customer.id)
+            {
+                totalOrderQuantity += orders[i].quantity;
+                orders.erase(orders.begin() + i);
+            }
+            if (size != (int)orders.size())
+            {
+                --i;
+                size = orders.size();
+            }
         }
-        cout << "OP: customer " << setfill('0') << setw(4) << customer.id << ": shipped quantity " << totalOrderQuantity << "\n";
+        if (totalOrderQuantity > 0)
+            cout << "OP: customer " << setfill('0') << setw(4) << customer.id << ": shipped quantity " << totalOrderQuantity << "\n";
+        
     }
 }
