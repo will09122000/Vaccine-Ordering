@@ -51,11 +51,13 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber)
 {
     int totalOrderQuantity = 0;
     int size = orders.size();
+    int date;
     for (int i = 0; i < size; ++i)
     {
         if (orders[i].customerID == customerID)
         {
             totalOrderQuantity += orders[i].quantity;
+            date = orders[i].date;
             orders.erase(orders.begin() + i);
         }
         if (size != (int)orders.size())
@@ -63,13 +65,13 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber)
             --i;
             size = orders.size();
         }
-        if (totalOrderQuantity > 0)
+    }
+    if (totalOrderQuantity > 0)
         {
             cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
-            cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << orders[i].date << ": quantity " << totalOrderQuantity << "\n";
+            cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
             invoiceNumber++;
         }
-    }
 }
 
 void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
