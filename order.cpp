@@ -4,17 +4,17 @@ class Order {
     public:
         int date;
         char type;
-        int customerNumber;
+        int customerID;
         int quantity;
 
         void ship() {
             cout << "Ship Orders!\n";
         }
 
-        Order(int date, char type, int customerNumber, int quantity) {
+        Order(int date, char type, int customerID, int quantity) {
             this->date = date;
             this->type = type;
-            this->customerNumber = customerNumber;
+            this->customerID = customerID;
             this->quantity = quantity;
         }
 };

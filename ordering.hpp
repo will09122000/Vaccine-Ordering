@@ -4,3 +4,4 @@
 typedef unordered_map<int, Customer> customerMap;
 
 void addCustomer(string line, customerMap & customers);
+void addOrder(string line, vector<Order> & orders);

@@ -14,18 +14,10 @@ int main(int argc, char **argv) {
             case 'C':
                 addCustomer(line, customers);
                 break;
-            // New sale
+            // New order
             case 'S':
-            {
-                orders.push_back(Order(stoi(line.substr(1, 8)),
-                                       line.at(9),
-                                       stoi(line.substr(10, 4)),
-                                       stoi(line.substr(14, 3))));
-                cout << "New Order for customer: " << stoi(line.substr(10, 4)) << "\n";
-                if (line.at(9) == 'X')
-                    orders[3].ship();
+                addOrder(line, orders);
                 break;
-            }
             // End-of-day
             case 'E':
             {
@@ -36,9 +28,9 @@ int main(int argc, char **argv) {
         }
     }
 
-    cout << orders[0].date << " " << orders[0].type << " " << orders[0].customerNumber << " " << orders[0].quantity << "\n";
-    cout << orders[1].date << " " << orders[1].type << " " << orders[1].customerNumber << " " << orders[1].quantity << "\n";
-    cout << orders[2].date << " " << orders[2].type << " " << orders[2].customerNumber << " " << orders[2].quantity << "\n";
+    //cout << orders[0].date << " " << orders[0].type << " " << orders[0].customerNumber << " " << orders[0].quantity << "\n";
+    //cout << orders[1].date << " " << orders[1].type << " " << orders[1].customerNumber << " " << orders[1].quantity << "\n";
+    //cout << orders[2].date << " " << orders[2].type << " " << orders[2].customerNumber << " " << orders[2].quantity << "\n";
 
     return 0;
 }
@@ -49,4 +41,14 @@ void addCustomer(string line, customerMap & customers)
     Customer newCustomer = Customer(customerID, line.substr(5, 39));
     customers.insert({ customerID, newCustomer });
     cout << "OP: customer " << setfill('0') << std::setw(4) << customers.at(customerID).id << " added\n";
+}
+
+void addOrder(string line, vector<Order> & orders)
+{
+    orders.push_back(Order(stoi(line.substr(1, 8)),
+                           line.at(9),
+                           stoi(line.substr(10, 4)),
+                           stoi(line.substr(14, 3))));
+    string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity");
+    cout << "OP: customer " << setfill('0') << std::setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
