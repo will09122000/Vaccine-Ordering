@@ -1,6 +1,7 @@
 #include <ordering.hpp>
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     validateArguments(argc, argv);
     vector<string> lines = readInput(argc, argv);
     vector<Customer> customers;
@@ -10,7 +11,8 @@ int main(int argc, char **argv) {
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
         string line = *i;
-        switch(line.front()) {
+        switch(line.front()) 
+        {
             // New customer
             case 'C':
                 addCustomer(line, customers);
@@ -43,6 +45,12 @@ void addOrder(string line, vector<Order> & orders)
                            line.at(9),
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
+    auto it = find_if(v.begin(), v.end(), [&stoi(line.substr(10, 4))](const Type& obj) {return obj.id == stoi(line.substr(10, 4));})
+
+    if (it != v.end())
+    {
+        cout << it.id << "\n";
+    }
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }

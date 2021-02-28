@@ -1,17 +1,20 @@
 #include <order.hpp>
 
-class Order {
+class Order
+{
     public:
         int date;
         char type;
         int customerID;
         int quantity;
 
-        void ship() {
+        void ship()
+        {
             cout << "Ship Orders!\n";
         }
 
-        Order(int date, char type, int customerID, int quantity) {
+        Order(int date, char type, int customerID, int quantity)
+        {
             this->date = date;
             this->type = type;
             this->customerID = customerID;
