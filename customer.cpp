@@ -6,7 +6,7 @@ class Customer
         int id;
         string name;
         int orderQuantity = 0;
-        std::vector<Invoice> invoices;
+        vector<Invoice> invoices;
 
         void printInvoice()
         {
