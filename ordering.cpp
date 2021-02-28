@@ -41,13 +41,16 @@ void addCustomer(string line, vector<Customer> & customers)
 
 void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
+    int customerID = stoi(line.substr(10, 4));
     orders.push_back(Order(stoi(line.substr(1, 8)),
                            line.at(9),
-                           stoi(line.substr(10, 4)),
+                           customerID,
                            stoi(line.substr(14, 3))));
 
-    int customerID = stoi(line.substr(10, 4));
-    for(auto const& value: customers) {
+    
+    for(auto const& customer: customers)
+    {
+        if (customer.id = customerID)
             cout << value.id << "\n";
     }
 
