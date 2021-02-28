@@ -43,7 +43,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
     orders.push_back(Order(stoi(line.substr(1, 8)),
                            line.at(9),
-                           customerID,
+                           stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
 
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
