@@ -8,6 +8,12 @@ class Customer
         int orderQuantity = 0;
         vector<Invoice> invoices;
 
+        void addInvoice(Invoice invoice) const
+        {
+            invoices.push_back(invoice);
+            cout << "INVOICE ADDED!" << "\n";
+        }
+
         void printInvoice() const
         {
             cout << "INVOICE PRINTED!" << "\n";
