@@ -53,7 +53,6 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
             
             customer.addInvoice(Invoice(invoiceNumber, stoi(line.substr(10, 4)), stoi(line.substr(1, 8)), stoi(line.substr(14, 3))));
             cout << customer.id << "\n";
-            invoiceNumber++;
         }
     }
 
@@ -92,6 +91,7 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
         cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
         cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
     }
+    invoiceNumber++;
 }
 
 void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
