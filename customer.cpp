@@ -10,7 +10,7 @@ class Customer
 
         void addInvoice(Invoice invoice)
         {
-            this->invoices.push_back(invoice);
+            //this->invoices.push_back(invoice);
             cout << "INVOICE ADDED!" << "\n";
         }
 
