@@ -12,17 +12,17 @@ class Invoice
         // getters
         int getId()
         {
-            return this->id
+            return this->id;
         }
 
         int getDate()
         {
-            return this->date
+            return this->date;
         }
 
         int getQuantity()
         {
-            return this->quantity
+            return this->quantity;
         }
 
         Invoice(int invoiceNumber, int customerID, int date, int quantity)
