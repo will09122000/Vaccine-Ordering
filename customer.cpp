@@ -11,12 +11,12 @@ class Customer
         void addInvoice(Invoice invoice)
         {
             this->invoices.push_back(invoice);
-            //cout << this->invoices.back().id << "\n";
         }
 
         void printInvoice()
         {
-            cout << this->invoices.back().id << "\n";
+            Invoice invoice = this->invoices.back()
+            cout << "SC: customer " << setfill('0') << setw(4) << this->id << ": invoice " << invoice.id << ": date " << invoice.date << ": quantity " << invoice.quantity << "\n";
         }
 
 

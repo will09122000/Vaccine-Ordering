@@ -52,7 +52,6 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
     {
         if (customer.id == stoi(line.substr(10, 4)))
         {
-            
             customer.addInvoice(Invoice(invoiceNumber, stoi(line.substr(10, 4)), stoi(line.substr(1, 8)), stoi(line.substr(14, 3))));
         }
     }
@@ -92,7 +91,6 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     if (totalOrderQuantity > 0)
     {
         cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
-        cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
     }
     invoiceNumber++;
 }
