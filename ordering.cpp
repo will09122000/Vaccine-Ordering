@@ -47,14 +47,8 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
                            stoi(line.substr(14, 3))));
 
     int customerID = stoi(line.substr(10, 4));
-    auto it = find_if(customers.begin(), customers.end(), [&customerID](const Type& Customer) {return Customer.id == customerID;})
+    vector<Customer>::iterator it = find_if(customers.begin(), customers.end(), Customer.id == customerID);
 
-    if (it != customers.end())
-    {
-    // found element. it is an iterator to the first matching element.
-    // if you really need the index, you can also get it:
-    auto index = std::distance(v.begin(), it);
-    }
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
