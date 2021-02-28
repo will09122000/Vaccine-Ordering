@@ -1,6 +1,4 @@
 #include <customer.hpp>
-#include <invoice.cpp>
-
 
 class Customer
 {
@@ -9,7 +7,7 @@ class Customer
         string name;
         int orderQuantity = 0;
         vector<Invoice> invoices;
-        
+
         void printInvoice()
         {
 
