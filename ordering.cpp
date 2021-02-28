@@ -45,7 +45,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
                            line.at(9),
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
-    auto it = find_if(customers.begin(), customers.end(), [&stoi(line.substr(10, 4))](const Type& obj) {return obj.id == stoi(line.substr(10, 4));})
+    auto it = find_if(customers.begin(), customers.end(), [stoi(line.substr(10, 4))](const Type& obj) {return obj.id == stoi(line.substr(10, 4));})
 
     if (it != v.end())
     {
