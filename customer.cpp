@@ -14,7 +14,7 @@ class Customer
             cout << "INVOICE ADDED!" << "\n";
         }
 
-        void printInvoice() const
+        void printInvoice()
         {
             cout << "INVOICE PRINTED!" << "\n";
         }
