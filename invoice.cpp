@@ -8,6 +8,7 @@ class Invoice
         int date;
         int quantity;
 
+    private:
         Invoice(int invoiceNumber, int customerID, int date, int quantity)
         {
             this->id = invoiceNumber;

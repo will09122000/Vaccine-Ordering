@@ -9,11 +9,13 @@ class Customer
         vector<Invoice> invoices;
 
     public:
+        // getters
         int getId()
         {
             return this->id;
         }
 
+        // methods
         void addInvoice(Invoice invoice)
         {
             this->invoices.push_back(invoice);
