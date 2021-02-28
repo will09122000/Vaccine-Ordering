@@ -8,6 +8,8 @@ int main(int argc, char **argv)
     vector<Order> orders;
     int invoiceNumber = 1000;
 
+    cout << "A" << "\n";
+
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
         string line = *i;
