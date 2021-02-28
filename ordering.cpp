@@ -50,7 +50,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
     {
         if (customer.id == stoi(line.substr(10, 4)))
         {
-            invoice Invoice(invoiceNumber, stoi(line.substr(1, 8)), stoi(line.substr(14, 3)));
+            Invoice invoice(invoiceNumber, stoi(line.substr(1, 8)), stoi(line.substr(14, 3)));
             customer.addInvoice(invoice);
             invoiceNumber++;
         }
