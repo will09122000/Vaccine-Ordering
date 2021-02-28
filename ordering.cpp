@@ -19,7 +19,7 @@ int main(int argc, char **argv)
                 break;
             // New order
             case 'S':
-                addOrder(line, orders);
+                addOrder(line, orders, customers);
                 if (orders.back().type == 'X')
                     sendOrders(orders.back().customerID, orders, invoiceNumber);
                 break;
@@ -39,7 +39,7 @@ void addCustomer(string line, vector<Customer> & customers)
     cout << "OP: customer " << setfill('0') << setw(4) << customers.back().id << " added\n";
 }
 
-void addOrder(string line, vector<Order> & orders)
+void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
     orders.push_back(Order(stoi(line.substr(1, 8)),
                            line.at(9),
