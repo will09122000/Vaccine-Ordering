@@ -48,7 +48,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
 
     for (auto const& customer: customers)
     {
-        if (customer.id == customerID)
+        if (customer.id == stoi(line.substr(10, 4)))
         {
             invoice Invoice(invoiceNumber, stoi(line.substr(1, 8)), stoi(line.substr(14, 3)));
             customer.addInvoice(invoice);
