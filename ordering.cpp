@@ -48,14 +48,6 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
 
-    for (auto & customer: customers)
-    {
-        if (customer.id == stoi(line.substr(10, 4)))
-        {
-            customer.addInvoice(Invoice(invoiceNumber, stoi(line.substr(10, 4)), stoi(line.substr(1, 8)), stoi(line.substr(14, 3))));
-        }
-    }
-
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
@@ -84,6 +76,8 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     {
         if (customer.id == customerID && totalOrderQuantity > 0)
         {
+
+            customer.addInvoice(Invoice(invoiceNumber, customer.id, date, totalOrderQuantity));
             customer.printInvoice();
         }
     }
