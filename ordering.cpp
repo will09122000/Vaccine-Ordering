@@ -91,7 +91,6 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     {
         cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
         cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
-        invoiceNumber++;
     }
 }
 
