@@ -1,4 +1,4 @@
 #include <string>
-#include <invoice.cpp>
+#include <invoice.hpp>
 
 using namespace std;

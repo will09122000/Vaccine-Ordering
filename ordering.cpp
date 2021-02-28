@@ -50,8 +50,8 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
     
     for(auto const& customer: customers)
     {
-        if (customer.id = customerID)
-            cout << value.id << "\n";
+        if (customer.id == customerID)
+            cout << customer.id << "\n";
     }
 
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
