@@ -47,7 +47,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
                            stoi(line.substr(14, 3))));
 
     int customerID = stoi(line.substr(10, 4));
-    vector<Customer>::iterator it = find_if(customers.begin(), customers.end(), Customer.id == customerID);
+    Customer::iterator it = find_if(customers.begin(), customers.end(), it.id == customerID);
 
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
