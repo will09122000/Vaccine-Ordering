@@ -21,7 +21,7 @@ int main(int argc, char **argv)
             case 'S':
                 addOrder(line, orders, customers);
                 if (orders.back().type == 'X')
-                    sendOrders(orders.back().customerID, orders, invoiceNumber);
+                    sendOrder(orders.back().customerID, orders, invoiceNumber, customers);
                 break;
             // End-of-day
             case 'E':
@@ -41,24 +41,16 @@ void addCustomer(string line, vector<Customer> & customers)
 
 void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
-    int customerID = stoi(line.substr(10, 4));
     orders.push_back(Order(stoi(line.substr(1, 8)),
                            line.at(9),
                            customerID,
                            stoi(line.substr(14, 3))));
 
-    
-    for(auto const& customer: customers)
-    {
-        if (customer.id == customerID)
-            cout << customer.id << "\n";
-    }
-
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
 }
 
-void sendOrders(int customerID, vector<Order> & orders, int & invoiceNumber)
+void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vector<Customer> & customers)
 {
     int totalOrderQuantity = 0;
     int size = orders.size();
@@ -77,12 +69,19 @@ void sendOrders(int customerID, vector<Order> & orders, int & invoiceNumber)
             size = orders.size();
         }
     }
+
+    for (auto const& customer: customers)
+    {
+        if (customer.id == customerID)
+            customer.printInvoice()
+    }
+
     if (totalOrderQuantity > 0)
-        {
-            cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
-            cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
-            invoiceNumber++;
-        }
+    {
+        cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
+        cout << "SC: customer " << setfill('0') << setw(4) << customerID << ": invoice " << invoiceNumber << ": date " << date << ": quantity " << totalOrderQuantity << "\n";
+        invoiceNumber++;
+    }
 }
 
 void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
@@ -91,6 +90,6 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders, i
     cout << "OP: end of day " << date << "\n";
     for (auto const& customer: customers)
     {
-        sendOrders(customer.id, orders, invoiceNumber);
+        sendOrder(customer.id, orders, invoiceNumber, customers);
     }
 }

@@ -10,7 +10,7 @@ class Customer
 
         void printInvoice()
         {
-
+            cout << "INVOICE PRINTED!" << "\n";
         }
 
 
