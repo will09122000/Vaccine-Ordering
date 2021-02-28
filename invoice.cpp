@@ -8,9 +8,9 @@ class Invoice
         int date;
         int quantity;
 
-        Invoice(int customerID, int date, int quantity)
+        Invoice(int invoiceNumber, int customerID, int date, int quantity)
         {
-            this->invoiceID = 1000;
+            this->invoiceID = invoiceNumber;
             this->customerID = customerID;
             this->date = date;
             this->quantity = quantity;
