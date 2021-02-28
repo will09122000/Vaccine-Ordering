@@ -11,13 +11,13 @@ class Customer
         void addInvoice(Invoice invoice)
         {
             this->invoices.push_back(invoice);
-            //cout << "INVOICE ADDED!" << "\n";
+            cout << this->invoices.back().id << "\n";
         }
 
         void printInvoice()
         {
             //Invoice invoice = this->invoices.back();
-            cout << this->invoices << "\n";
+            //cout << this->id << "\n";
         }
 
 
