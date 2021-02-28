@@ -85,7 +85,9 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     for (auto & customer: customers)
     {
         if (customer.id == customerID)
-            customer.printInvoice();
+        {
+            Invoice invoice = customer.invoices.back();
+        }
     }
 
     if (totalOrderQuantity > 0)
