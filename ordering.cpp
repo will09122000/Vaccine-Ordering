@@ -81,7 +81,7 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
         }
     }
 
-    for (auto const& customer: customers)
+    for (auto & customer: customers)
     {
         if (customer.id == customerID)
             customer.printInvoice();
