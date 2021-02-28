@@ -3,14 +3,14 @@
 class Invoice
 {
     public:
-        int invoiceID;
+        int id;
         int customerID;
         int date;
         int quantity;
 
         Invoice(int invoiceNumber, int customerID, int date, int quantity)
         {
-            this->invoiceID = invoiceNumber;
+            this->id = invoiceNumber;
             this->customerID = customerID;
             this->date = date;
             this->quantity = quantity;
