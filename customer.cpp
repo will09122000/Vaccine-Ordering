@@ -16,7 +16,7 @@ class Customer
 
         void printInvoice()
         {
-            cout << this->invoices.back().id << "\n";
+            cout << this->invoices.back() << "\n";
         }
 
 
