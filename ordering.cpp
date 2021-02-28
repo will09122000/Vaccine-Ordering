@@ -76,17 +76,12 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     {
         if (customer.id == customerID && totalOrderQuantity > 0)
         {
-
+            cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
             customer.addInvoice(Invoice(invoiceNumber, customer.id, date, totalOrderQuantity));
             customer.printInvoice();
+            invoiceNumber++;
         }
     }
-
-    if (totalOrderQuantity > 0)
-    {
-        cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalOrderQuantity << "\n";
-    }
-    invoiceNumber++;
 }
 
 void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
