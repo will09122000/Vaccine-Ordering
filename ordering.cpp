@@ -8,8 +8,6 @@ int main(int argc, char **argv)
     vector<Order> orders;
     int invoiceNumber = 1000;
 
-    cout << "A" << "\n";
-
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
         string line = *i;
@@ -21,7 +19,7 @@ int main(int argc, char **argv)
                 break;
             // New order
             case 'S':
-                addOrder(line, orders, customers, invoiceNumber);
+                addOrder(line, orders, customers);
                 if (orders.back().type == 'X')
                     sendOrder(orders.back().customerID, orders, invoiceNumber, customers);
                 break;
@@ -41,7 +39,7 @@ void addCustomer(string line, vector<Customer> & customers)
     cout << "OP: customer " << setfill('0') << setw(4) << customers.back().id << " added\n";
 }
 
-void addOrder(string line, vector<Order> & orders, vector<Customer> & customers, int & invoiceNumber)
+void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
     orders.push_back(Order(stoi(line.substr(1, 8)),
                            line.at(9),
