@@ -83,9 +83,9 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
 
     for (auto & customer: customers)
     {
-        if (customer.id == customerID)
+        if (customer.id == customerID && totalOrderQuantity > 0)
         {
-            cout << customer.invoices.size() << "\n";
+            customer.printInvoice();
         }
     }
 
