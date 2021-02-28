@@ -2,12 +2,13 @@
 
 class Customer
 {
-    public:
+    private:
         int id;
         string name;
         int orderQuantity = 0;
         vector<Invoice> invoices;
 
+    public:
         void addInvoice(Invoice invoice)
         {
             this->invoices.push_back(invoice);
@@ -18,7 +19,6 @@ class Customer
             Invoice invoice = this->invoices.back();
             cout << "SC: customer " << setfill('0') << setw(4) << this->id << ": invoice " << invoice.id << ": date " << invoice.date << ": quantity " << invoice.quantity << "\n";
         }
-
 
         Customer(int id, string name)
         {
