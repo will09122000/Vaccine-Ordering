@@ -52,6 +52,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
         {
             
             //customer.addInvoice(Invoice(invoiceNumber, stoi(line.substr(10, 4)), stoi(line.substr(1, 8)), stoi(line.substr(14, 3))));
+            cout << customer.id << "\n";
             invoiceNumber++;
         }
     }
