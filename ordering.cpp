@@ -39,7 +39,7 @@ void addCustomer(string line, vector<Customer> & customers)
     string name = line.substr(5, 39);
     customers.push_back(Customer(id, name));
 
-    cout << "OP: customer " << setfill('0') << setw(4) << customers.back().id << " added\n";
+    cout << "OP: customer " << setfill('0') << setw(4) << customers.back().getId() << " added\n";
 }
 
 void addOrder(string line, vector<Order> & orders)
@@ -77,10 +77,10 @@ void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & custom
 
     for (auto & customer: customers)
     {
-        if (customer.id == customerID && totalQuantity > 0)
+        if (customer.getId() == customerID && totalQuantity > 0)
         {
             cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalQuantity << "\n";
-            customer.addInvoice(Invoice(invoiceNumber, customer.id, date, totalQuantity));
+            customer.addInvoice(Invoice(invoiceNumber, customer.getId(), date, totalQuantity));
             customer.printInvoice();
             invoiceNumber++;
             break;
@@ -94,6 +94,6 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders, i
     cout << "OP: end of day " << date << "\n";
     for (auto & customer: customers)
     {
-        sendOrder(customer.id, orders, customers, invoiceNumber);
+        sendOrder(customer.getId(), orders, customers, invoiceNumber);
     }
 }
