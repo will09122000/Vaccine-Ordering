@@ -86,7 +86,7 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     {
         if (customer.id == customerID)
         {
-            vector<Invoice> test = customer.invoices;
+            cout << customer.invoices.size() << "\n";
         }
     }
 
