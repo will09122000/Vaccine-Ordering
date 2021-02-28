@@ -3,7 +3,7 @@
 class Invoice
 {
     public:
-        static int invoiceID;
+        int invoiceID;
         int customerID;
         int date;
         int quantity;
