@@ -4,7 +4,8 @@ int main(int argc, char **argv)
 {
     validateArguments(argc, argv);
     vector<string> lines = readInput(argc, argv);
-    vector<Customer> customers;
+    typedef vector<Customer> Test;
+    Test customers;
     vector<Order> orders;
     int invoiceNumber = 1000;
 
@@ -45,11 +46,11 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
                            line.at(9),
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
-    auto it = find_if(customers.begin(), customers.end(), [stoi(line.substr(10, 4))](const Type& obj) {return obj.id == stoi(line.substr(10, 4));})
-
-    if (it != v.end())
+    Test::iterator itr = customers.begin();
+    while (itr != customers.end())
     {
-        cout << it.id << "\n";
+    if(customers[*itr].id == stoi(line.substr(10, 4))) // any other comparator you may want to use
+        cout << "Found!" << "\n";
     }
     string orderType = (orders.back().type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
     cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << orderType << orders.back().quantity << "\n";
