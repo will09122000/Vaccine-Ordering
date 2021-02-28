@@ -2,13 +2,13 @@
 
 class Invoice
 {
-    public:
+    private:
         int id;
         int customerID;
         int date;
         int quantity;
 
-    private:
+    public:
         Invoice(int invoiceNumber, int customerID, int date, int quantity)
         {
             this->id = invoiceNumber;
