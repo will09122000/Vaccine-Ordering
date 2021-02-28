@@ -5,7 +5,8 @@ class Customer {
         int id;
         string name;
         int orderQuantity = 0;
-        vector<Invoice> invoices;
+        //vector<Invoice> invoices;
+
 
         Customer(int id, string name) {
             this->id = id;
