@@ -8,7 +8,7 @@ class Customer
         int orderQuantity = 0;
         vector<Invoice> invoices;
 
-        void printInvoice const()
+        void printInvoice() const
         {
             cout << "INVOICE PRINTED!" << "\n";
         }
