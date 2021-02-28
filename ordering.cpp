@@ -46,7 +46,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers,
                            stoi(line.substr(10, 4)),
                            stoi(line.substr(14, 3))));
 
-    for (auto const& customer: customers)
+    for (auto & customer: customers)
     {
         if (customer.id == stoi(line.substr(10, 4)))
         {
