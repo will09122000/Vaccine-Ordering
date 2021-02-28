@@ -9,6 +9,22 @@ class Invoice
         int quantity;
 
     public:
+        // getters
+        int getId()
+        {
+            return this->id
+        }
+
+        int getDate()
+        {
+            return this->date
+        }
+
+        int getQuantity()
+        {
+            return this->quantity
+        }
+
         Invoice(int invoiceNumber, int customerID, int date, int quantity)
         {
             this->id = invoiceNumber;
