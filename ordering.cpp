@@ -86,7 +86,7 @@ void sendOrder(int customerID, vector<Order> & orders, int & invoiceNumber, vect
     {
         if (customer.id == customerID)
         {
-            Invoice invoice = customer->invoices.back();
+            vector<Invoice> test = customer.invoices;
         }
     }
 
