@@ -7,7 +7,7 @@ int main(int argc, char **argv)
     vector<Customer> customers;
     vector<Order> orders;
     int invoiceNumber = 1000;
-
+    cout << "------------------------------------------------------------\n";
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
     {
         string line = *i;
