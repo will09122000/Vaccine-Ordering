@@ -29,7 +29,7 @@ int main(int argc, char **argv)
                 endDay(line, customers, orders, invoiceNumber);
                 break;
         }
-        cout << "-------------------------------------------------------------------\n";
+        cout << "------------------------------------------------------------\n";
     }
     return 0;
 }
@@ -54,10 +54,14 @@ void addOrder(string line, vector<Order> & orders)
 
     string typeString = (type == 'N' ? ": normal order: quantity " :
                         ": EXPRESS order: quantity ");
-    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().getCustomerID() << typeString << orders.back().getQuantity() << "\n";
+
+    cout << "OP: customer " << setfill('0') << setw(4)
+         << orders.back().getCustomerID() << typeString
+         << orders.back().getQuantity() << "\n";
 }
 
-void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & customers, int & invoiceNumber)
+void sendOrder(int customerID, vector<Order> & orders,
+               vector<Customer> & customers, int & invoiceNumber)
 {
     int totalQuantity = 0;
     int size = orders.size();
@@ -82,8 +86,10 @@ void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & custom
     {
         if (customer.getId() == customerID && totalQuantity > 0)
         {
-            cout << "OP: customer " << setfill('0') << setw(4) << customerID << ": shipped quantity " << totalQuantity << "\n";
-            customer.addInvoice(Invoice(invoiceNumber, customer.getId(), date, totalQuantity));
+            cout << "OP: customer " << setfill('0') << setw(4) << customerID
+                 << ": shipped quantity " << totalQuantity << "\n";
+            customer.addInvoice(Invoice(invoiceNumber, customer.getId(),
+                                        date, totalQuantity));
             customer.printInvoice();
             invoiceNumber++;
             break;
@@ -91,7 +97,8 @@ void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & custom
     }
 }
 
-void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber)
+void endDay(string line, vector<Customer> & customers, vector<Order> & orders,
+            int & invoiceNumber)
 {
     int date = stoi(line.substr(1, 8));
     cout << "OP: end of day " << date << "\n";
