@@ -62,10 +62,10 @@ void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & custom
 
     for (int i = 0; i < size; ++i)
     {
-        if (orders[i].getCustomerID == customerID)
+        if (orders[i].getCustomerID() == customerID)
         {
             totalQuantity += orders[i].getQuantity();
-            date = orders[i].getDate;
+            date = orders[i].getDate();
             orders.erase(orders.begin() + i);
         }
         if (size != (int)orders.size())
