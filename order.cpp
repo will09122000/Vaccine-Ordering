@@ -2,12 +2,12 @@
 
 class Order
 {
-    public:
         int date;
         char type;
         int customerID;
         int quantity;
 
+    public:
         void ship()
         {
             cout << "Ship Orders!\n";
