@@ -20,7 +20,7 @@ int main(int argc, char **argv)
             // New order
             case 'S':
                 addOrder(line, orders);
-                if (orders.back().type == 'X')
+                if (orders.back().getType() == 'X')
                     sendOrder(orders.back().getCustomerID(), orders, customers, invoiceNumber);
                 break;
             // End-of-day

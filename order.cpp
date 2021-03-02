@@ -2,10 +2,10 @@
 
 class Order
 {
-        int date;
-        char type;
-        int customerID;
-        int quantity;
+    int date;
+    char type;
+    int customerID;
+    int quantity;
 
     public:
         // getters
@@ -17,7 +17,7 @@ class Order
         {
             return this->type;
         }
-        int getcustomerID()
+        int getCustomerID()
         {
             return this->customerID;
         }
