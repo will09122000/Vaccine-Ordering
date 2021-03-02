@@ -2,11 +2,10 @@
 
 class Customer
 {
-    private:
-        int id;
-        string name;
-        int orderQuantity = 0;
-        vector<Invoice> invoices;
+    int id;
+    string name;
+    int orderQuantity = 0;
+    vector<Invoice> invoices;
 
     public:
         // getters

@@ -2,11 +2,10 @@
 
 class Invoice
 {
-    private:
-        int id;
-        int customerID;
-        int date;
-        int quantity;
+    int id;
+    int customerID;
+    int date;
+    int quantity;
 
     public:
         // getters
