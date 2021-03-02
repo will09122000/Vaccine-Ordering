@@ -21,7 +21,7 @@ int main(int argc, char **argv)
             case 'S':
                 addOrder(line, orders);
                 if (orders.back().type == 'X')
-                    sendOrder(orders.back().customerID, orders, customers, invoiceNumber);
+                    sendOrder(orders.back().getCustomerID(), orders, customers, invoiceNumber);
                 break;
             // End-of-day
             case 'E':
@@ -51,7 +51,7 @@ void addOrder(string line, vector<Order> & orders)
     orders.push_back(Order(date, type, customerID, quantity));
 
     string typeString = (type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
-    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().customerID << typeString << orders.back().quantity << "\n";
+    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().getCustomerID << typeString << orders.back().getQuantity << "\n";
 }
 
 void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & customers, int & invoiceNumber)
@@ -62,10 +62,10 @@ void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & custom
 
     for (int i = 0; i < size; ++i)
     {
-        if (orders[i].customerID == customerID)
+        if (orders[i].getCustomerID == customerID)
         {
-            totalQuantity += orders[i].quantity;
-            date = orders[i].date;
+            totalQuantity += orders[i].getQuantity();
+            date = orders[i].getDate;
             orders.erase(orders.begin() + i);
         }
         if (size != (int)orders.size())

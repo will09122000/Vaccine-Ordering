@@ -8,6 +8,24 @@ class Order
         int quantity;
 
     public:
+        // getters
+        int getDate()
+        {
+            return this->date;
+        }
+        char getType()
+        {
+            return this->type;
+        }
+        int getcustomerID()
+        {
+            return this->customerID;
+        }
+        int getQuantity()
+        {
+            return this->quantity;
+        }
+
         void ship()
         {
             cout << "Ship Orders!\n";
