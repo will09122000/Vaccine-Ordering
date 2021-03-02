@@ -51,7 +51,7 @@ void addOrder(string line, vector<Order> & orders)
     orders.push_back(Order(date, type, customerID, quantity));
 
     string typeString = (type == 'N' ? ": normal order: quantity " : ": EXPRESS order: quantity ");
-    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().getCustomerID << typeString << orders.back().getQuantity << "\n";
+    cout << "OP: customer " << setfill('0') << setw(4) << orders.back().getCustomerID() << typeString << orders.back().getQuantity() << "\n";
 }
 
 void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & customers, int & invoiceNumber)
