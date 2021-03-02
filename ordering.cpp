@@ -21,7 +21,8 @@ int main(int argc, char **argv)
             case 'S':
                 addOrder(line, orders);
                 if (orders.back().getType() == 'X')
-                    sendOrder(orders.back().getCustomerID(), orders, customers, invoiceNumber);
+                    sendOrder(orders.back().getCustomerID(), orders, customers,
+                              invoiceNumber);
                 break;
             // End-of-day
             case 'E':
@@ -39,7 +40,8 @@ void addCustomer(string line, vector<Customer> & customers)
     string name = line.substr(5, 39);
     customers.push_back(Customer(id, name));
 
-    cout << "OP: customer " << setfill('0') << setw(4) << customers.back().getId() << " added\n";
+    cout << "OP: customer " << setfill('0') << setw(4) <<
+            customers.back().getId() << " added\n";
 }
 
 void addOrder(string line, vector<Order> & orders)
