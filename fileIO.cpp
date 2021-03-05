@@ -15,6 +15,33 @@ void validateArguments(int argc, char **argv)
     }
 }
 
+bool isValidLine(string line)
+{
+    // Check length of line
+    if (line.length() > 45)
+        return false;
+
+    // Check first character
+    switch(line.front()) 
+    {
+        // New customer
+        case 'C':
+            string customerID = line.substr(1, 4);
+            return !customerID.empty() && std::all_of(customerID.begin(), customerID.end(), ::isdigit);
+            break;
+        // New order
+        case 'S':
+            
+            break;
+        // End-of-day
+        case 'E':
+            
+            break;
+        default:
+            return false;
+    }
+}
+
 /*
     Function: readInput
     ---------------------------------------------------------------------------
@@ -38,7 +65,15 @@ vector<string> readInput(int argc, char **argv)
         {
             string line;
             getline(inputFile, line);
-            lines.push_back(line);
+            if (isValidLine(line))
+            {
+                lines.push_back(line);
+            }
+            else
+            {
+                cout << "Invalid line in input file:\n" << line;
+                exit(1);
+            }
         }
     }
     catch (const ifstream::failure& e) {
