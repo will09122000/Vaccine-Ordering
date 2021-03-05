@@ -2,9 +2,11 @@
 #include <order.cpp>
 #include <customer.cpp>
 
+using namespace std;
+
 void addCustomer(string line, vector<Customer> & customers);
 void addOrder(string line, vector<Order> & orders);
-void sendOrder(int customerID, vector<Order> & orders, vector<Customer> & customers, int & invoiceNumber);
-void endDay(string line, vector<Customer> & customers, vector<Order> & orders, int & invoiceNumber);
-
-using namespace std;
+void sendOrder(int customerID, vector<Order> & orders,
+               vector<Customer> & customers, int & invoiceNumber);
+void endDay(string line, vector<Customer> & customers,
+            vector<Order> & orders, int & invoiceNumber);
