@@ -4,5 +4,21 @@
 
 using namespace std;
 
-void addInvoice(Invoice invoice);
-void printInvoice();
+class Customer
+{
+    int id;
+    string name;
+    int orderQuantity = 0;
+    vector<Invoice> invoices;
+
+    public:
+        // Getters
+        int getId();
+
+        // Methods
+        void addInvoice(Invoice invoice);
+        void printInvoice();
+
+        // Constructors
+        Customer(int id, string name);
+};
