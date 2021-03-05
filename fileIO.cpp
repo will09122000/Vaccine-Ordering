@@ -36,7 +36,7 @@ bool isValidLine(string line)
         case 'S':
         {
             string date = line.substr(1, 8);
-            char type = line.substr(9, 1);
+            char type = line.at(9);
             string customerID = line.substr(10, 4);
             string orderQuantity = line.substr(14, 3);
             return (!date.empty() && std::all_of(date.begin(), date.end(), ::isdigit)) ||
