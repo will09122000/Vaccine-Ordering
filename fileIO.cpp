@@ -18,8 +18,8 @@ void validateArguments(int argc, char **argv)
 bool isValidLine(string line)
 {
     // Check length of line
-    //if (line.length() > 45)
-        //return false;
+    if (line.length() > 45)
+        return false;
 
     // Check first character
     switch(line.front()) 
@@ -42,8 +42,8 @@ bool isValidLine(string line)
         {
             break;
         }
-        //default:
-            //return false;
+        default:
+            return false;
     }
     return true;
 }
