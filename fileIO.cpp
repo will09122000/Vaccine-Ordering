@@ -28,8 +28,8 @@ bool isValidLine(string line)
         case 'C':
         {
             string customerID = line.substr(1, 4);
-            return !customerID.empty() &&
-                    std::all_of(customerID.begin(), customerID.end(), ::isdigit);
+            //return !customerID.empty() &&
+                    //std::all_of(customerID.begin(), customerID.end(), ::isdigit);
             break;
         }
         // New order
