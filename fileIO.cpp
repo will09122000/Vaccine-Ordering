@@ -45,6 +45,7 @@ bool isValidLine(string line)
         //default:
             //return false;
     }
+    return true;
 }
 
 /*
