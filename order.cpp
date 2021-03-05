@@ -1,41 +1,26 @@
 #include <order.hpp>
 
-class Order
+int Order::getDate()
 {
-    int date;
-    char type;
-    int customerID;
-    int quantity;
+    return this->date;
+}
+char Order::getType()
+{
+    return this->type;
+}
+int Order::getCustomerID()
+{
+    return this->customerID;
+}
+int Order::getQuantity()
+{
+    return this->quantity;
+}
 
-    public:
-        // getters
-        int getDate()
-        {
-            return this->date;
-        }
-        char getType()
-        {
-            return this->type;
-        }
-        int getCustomerID()
-        {
-            return this->customerID;
-        }
-        int getQuantity()
-        {
-            return this->quantity;
-        }
-
-        void ship()
-        {
-            cout << "Ship Orders!\n";
-        }
-
-        Order(int date, char type, int customerID, int quantity)
-        {
-            this->date = date;
-            this->type = type;
-            this->customerID = customerID;
-            this->quantity = quantity;
-        }
-};
+Order::Order(int date, char type, int customerID, int quantity)
+{
+    this->date = date;
+    this->type = type;
+    this->customerID = customerID;
+    this->quantity = quantity;
+}
