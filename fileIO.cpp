@@ -42,8 +42,8 @@ bool isValidLine(string line)
         {
             break;
         }
-        default:
-            return false;
+        //default:
+            //return false;
     }
     return true;
 }
