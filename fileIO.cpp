@@ -42,8 +42,11 @@ bool isValidLine(string line)
         {
             break;
         }
-        //default:
-            //return false;
+        default:
+        {
+            if (!line.empty())
+                return false;
+        }
     }
     return true;
 }
