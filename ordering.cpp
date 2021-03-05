@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     vector<Order> orders;
     int invoiceNumber = 1000;
     cout << "------------------------------------------------------------\n";
-    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); ++i)
+    for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
     {
         string line = *i;
         switch(line.front()) 
@@ -67,7 +67,7 @@ void sendOrder(int customerID, vector<Order> & orders,
     int size = orders.size();
     int date;
 
-    for (int i = 0; i < size; ++i)
+    for (int i = 0; i < size; i++)
     {
         if (orders[i].getCustomerID() == customerID)
         {
