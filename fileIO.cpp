@@ -26,17 +26,21 @@ bool isValidLine(string line)
     {
         // New customer
         case 'C':
+        {
             string customerID = line.substr(1, 4);
             return !customerID.empty() && std::all_of(customerID.begin(), customerID.end(), ::isdigit);
             break;
+        }
         // New order
         case 'S':
-            
+        {
             break;
+        }
         // End-of-day
         case 'E':
-            
+        {
             break;
+        }
         default:
             return false;
     }
