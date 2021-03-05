@@ -39,9 +39,9 @@ bool isValidLine(string line)
             char type = line.at(9);
             string customerID = line.substr(10, 4);
             string orderQuantity = line.substr(14, 3);
-            return (!date.empty() && std::all_of(date.begin(), date.end(), ::isdigit)) ||
-                   (type == 'N' || type == 'X') ||
-                   (!customerID.empty() && std::all_of(customerID.begin(), customerID.end(), ::isdigit)) ||
+            return (!date.empty() && std::all_of(date.begin(), date.end(), ::isdigit)) &&
+                   (type == 'N' || type == 'X') &&
+                   (!customerID.empty() && std::all_of(customerID.begin(), customerID.end(), ::isdigit)) &&
                    (!orderQuantity.empty() && std::all_of(orderQuantity.begin(), orderQuantity.end(), ::isdigit));
             break;
         }
