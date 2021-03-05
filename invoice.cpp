@@ -1,34 +1,24 @@
 #include <invoice.hpp>
 
-class Invoice
+int Invoice::getId()
 {
-    int id;
-    int customerID;
-    int date;
-    int quantity;
+    return this->id;
+}
 
-    public:
-        // getters
-        int getId()
-        {
-            return this->id;
-        }
+int Invoice::getDate()
+{
+    return this->date;
+}
 
-        int getDate()
-        {
-            return this->date;
-        }
+int Invoice::getQuantity()
+{
+    return this->quantity;
+}
 
-        int getQuantity()
-        {
-            return this->quantity;
-        }
-
-        Invoice(int invoiceNumber, int customerID, int date, int quantity)
-        {
-            this->id = invoiceNumber;
-            this->customerID = customerID;
-            this->date = date;
-            this->quantity = quantity;
-        }
-};
+Invoice::Invoice(int invoiceNumber, int customerID, int date, int quantity)
+{
+    this->id = invoiceNumber;
+    this->customerID = customerID;
+    this->date = date;
+    this->quantity = quantity;
+}
