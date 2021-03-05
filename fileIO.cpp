@@ -28,7 +28,8 @@ bool isValidLine(string line)
         case 'C':
         {
             string customerID = line.substr(1, 4);
-            return !customerID.empty() && std::all_of(customerID.begin(), customerID.end(), ::isdigit);
+            return !customerID.empty() &&
+                    std::all_of(customerID.begin(), customerID.end(), ::isdigit);
             break;
         }
         // New order
@@ -75,7 +76,7 @@ vector<string> readInput(int argc, char **argv)
             }
             else
             {
-                cout << "Invalid line in input file:\n" << line;
+                cout << "Invalid line in input file:\n" << line << "\n";
                 exit(1);
             }
         }
