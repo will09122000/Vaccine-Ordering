@@ -10,7 +10,7 @@ int Customer::getQuantity()
     return this->orderQuantity;
 }
 
-void Customer::setOrderQuantity(int orderQuantity)
+void Customer::setQuantity(int orderQuantity)
 {
     this->orderQuantity = orderQuantity;
 }

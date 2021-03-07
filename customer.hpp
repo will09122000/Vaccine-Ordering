@@ -20,7 +20,7 @@ class Customer
         int getQuantity();
 
         // Setters
-        void setOrderQuantity(int orderQuantity);
+        void setQuantity(int orderQuantity);
         void setInvoices();
 
         // Methods
