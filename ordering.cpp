@@ -96,7 +96,7 @@ void sendOrder(int customerID, vector<Order> & orders,
             cout << "OP: customer " << setfill('0') << setw(4) << customerID
                  << ": shipped quantity " << customer.getQuantity() << "\n";
             customer.addInvoice(Invoice(invoiceNumber, customer.getId(),
-                                        date, totalQuantity));
+                                        date, customer.getQuantity()));
             customer.printInvoice();
             invoiceNumber++;
             break;
