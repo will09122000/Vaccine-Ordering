@@ -3,6 +3,9 @@
 
 using namespace std;
 
+/*
+    This class represents a single order in the system.
+*/
 class Order
 {
     int date;
@@ -17,6 +20,6 @@ class Order
         int getCustomerID();
         int getQuantity();
 
-        // Constructor
+        // Constructors
         Order(int date, char type, int customerID, int quantity);
 };

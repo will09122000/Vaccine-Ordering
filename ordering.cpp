@@ -34,6 +34,16 @@ int main(int argc, char **argv)
     return 0;
 }
 
+/*
+    Function: addCustomer
+    ---------------------------------------------------------------------------
+    Adds a new customer object to the vector 'customers'.
+
+    line:      input line that is adding a new customer
+    customers: vector of customers
+
+    returns:   null
+*/
 void addCustomer(string line, vector<Customer> & customers)
 {
     int id = stoi(line.substr(1, 4));
@@ -44,6 +54,18 @@ void addCustomer(string line, vector<Customer> & customers)
          << customers.back().getId() << " added\n";
 }
 
+/*
+    Function: addOrder
+    ---------------------------------------------------------------------------
+    Adds a new order object to the vector 'orders' and increments the
+    customer's total order quantity.
+
+    line:      input line that is adding a new order
+    orders:    vector of orders
+    customers: vector of customers
+
+    returns:   null
+*/
 void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
     int date = stoi(line.substr(1, 8));
@@ -52,6 +74,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
     int quantity = stoi(line.substr(14, 3));
     orders.push_back(Order(date, type, customerID, quantity));
 
+    // Find customer and increment their total order quantity
     for (auto & customer: customers)
     {
         if (customer.getId() == customerID)
@@ -69,18 +92,31 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
          << orders.back().getQuantity() << "\n";
 }
 
+/*
+    Function: sendOrder
+    ---------------------------------------------------------------------------
+    Sends a customer order, triggered either by an express order or the
+    end-of-day input line.
+
+    customerID:    customer ID of the orders that are being sent
+    orders:        vector of orders
+    customers:     vector of customers
+    invoiceNumber: invoice number that needs to be assigned to the genterated
+                   invoice
+
+    returns:   null
+*/
 void sendOrder(int customerID, vector<Order> & orders,
                vector<Customer> & customers, int & invoiceNumber)
 {
-    int totalQuantity = 0;
     int size = orders.size();
     int date;
 
+    // Finds the date of orders and removes the orders from the vector
     for (int i = 0; i < size; i++)
     {
         if (orders[i].getCustomerID() == customerID)
         {
-            totalQuantity += orders[i].getQuantity();
             date = orders[i].getDate();
             orders.erase(orders.begin() + i);
         }
@@ -91,6 +127,8 @@ void sendOrder(int customerID, vector<Order> & orders,
         }
     }
 
+    // Ships the order, adding a new invoice to the customer's invoices and
+    // resets their order quantity to 0.
     for (auto & customer: customers)
     {
         if (customer.getId() == customerID && customer.getQuantity() > 0)
@@ -100,7 +138,7 @@ void sendOrder(int customerID, vector<Order> & orders,
             customer.addInvoice(Invoice(invoiceNumber, customer.getId(),
                                         date, customer.getQuantity()));
             
-            customer.setQuantity(customer.getQuantity() - totalQuantity);
+            customer.setQuantity(0);
             customer.printInvoice();
             invoiceNumber++;
             break;
@@ -108,6 +146,19 @@ void sendOrder(int customerID, vector<Order> & orders,
     }
 }
 
+/*
+    Function: endDay
+    ---------------------------------------------------------------------------
+    Sends out all orders to customers with orders.
+
+    line:          input line that has stated it is the end of the day
+    customers:     vector of customers
+    orders:        vector of orders
+    invoiceNumber: invoice number that needs to be assigned to the genterated
+                   invoice
+
+    returns:   null
+*/
 void endDay(string line, vector<Customer> & customers, vector<Order> & orders,
             int & invoiceNumber)
 {

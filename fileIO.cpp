@@ -5,9 +5,19 @@
     input text file.
 */
 
+/*
+    Function: validateArguments
+    ---------------------------------------------------------------------------
+    Checks the number of arguments to the program is valid.
+
+    argc:    number of command-line arguments passed by the user
+    argv:    array of character pointers listing all the arguments
+
+    returns: null
+*/
 void validateArguments(int argc, char **argv)
 {
-    /* Check the number of parameters is valid */
+    // Check the number of arguments is valid
     if (argc != 2)
     {
         fprintf(stderr, "Invalid number of arguments.\n");
@@ -15,6 +25,15 @@ void validateArguments(int argc, char **argv)
     }
 }
 
+/*
+    Function: isValidLine
+    ---------------------------------------------------------------------------
+    Determines if a line in the input text file is valid.
+
+    line:    the line to be checked
+
+    returns: a boolean value as to whether or not the line is valid
+*/
 bool isValidLine(string line)
 {
     // Check length of line
@@ -65,22 +84,23 @@ bool isValidLine(string line)
 /*
     Function: readInput
     ---------------------------------------------------------------------------
-    Checks all user inputs to the program are valid.
+    Checks the input file to the program is valid.
 
     argc:    number of command-line arguments passed by the user
     argv:    array of character pointers listing all the arguments
 
-    returns: null
+    returns: a vector of each line of the file as a string
 */
 vector<string> readInput(int argc, char **argv)
 {
     vector<string> lines;
 
     ifstream inputFile;
-    inputFile.exceptions ( ifstream::badbit );
+    inputFile.exceptions(ifstream::badbit);
     try {
         ifstream inputFile(argv[1]);
         string line; 
+        // Validates each line and adds to the vector
         while (!inputFile.eof())
         {
             string line;
@@ -100,6 +120,7 @@ vector<string> readInput(int argc, char **argv)
         cout << "Error opening or reading file\n";
     }
 
+    // Close the file and return the vector of lines
     inputFile.close();
     return lines;
 }

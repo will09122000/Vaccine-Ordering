@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+    This class represents a single invoice in the system.
+*/
 class Invoice
 {
     int id;

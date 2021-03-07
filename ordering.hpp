@@ -11,3 +11,4 @@ void sendOrder(int customerID, vector<Order> & orders,
                vector<Customer> & customers, int & invoiceNumber);
 void endDay(string line, vector<Customer> & customers,
             vector<Order> & orders, int & invoiceNumber);
+            

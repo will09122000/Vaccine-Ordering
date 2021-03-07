@@ -1,5 +1,7 @@
 #include <invoice.hpp>
 
+// Getters
+
 int Invoice::getId()
 {
     return this->id;
@@ -14,6 +16,8 @@ int Invoice::getQuantity()
 {
     return this->quantity;
 }
+
+// Constructors
 
 Invoice::Invoice(int invoiceNumber, int customerID, int date, int quantity)
 {

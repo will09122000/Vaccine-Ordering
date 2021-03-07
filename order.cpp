@@ -1,5 +1,7 @@
 #include <order.hpp>
 
+// Getters
+
 int Order::getDate()
 {
     return this->date;
@@ -16,6 +18,8 @@ int Order::getQuantity()
 {
     return this->quantity;
 }
+
+// Constructors
 
 Order::Order(int date, char type, int customerID, int quantity)
 {
