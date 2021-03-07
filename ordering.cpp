@@ -56,8 +56,8 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
     {
         if (customer.getID() == customerID)
         {
-            int currentQuantity = customer.getQuantity()
-            customer.setOrderQuantity(currentQuantity + quantity)
+            int currentQuantity = customer.getQuantity();
+            customer.setOrderQuantity(currentQuantity + quantity);
         }
     }
 

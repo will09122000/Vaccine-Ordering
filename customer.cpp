@@ -1,16 +1,24 @@
 #include <customer.hpp>
 
 int Customer::getId()
+{
     return this->id;
+}
 
 int Customer::getQuantity()
+{
     return this->orderQuantity
+}
 
 void Customer::setOrderQuantity(int orderQuantity)
+{
     this->orderQuantity = orderQuantity;
+}
 
 void Customer::addInvoice(Invoice invoice)
+{
     this->invoices.push_back(invoice);
+}
 
 void Customer::printInvoice()
 {
