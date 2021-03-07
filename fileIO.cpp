@@ -1,8 +1,8 @@
 #include "fileIO.hpp"
 
 /*
-    This file contains functions that handles the reading and writing to input
-    parameter and output text files.
+    This file contains functions that handles validating and reading of the
+    input text file.
 */
 
 void validateArguments(int argc, char **argv)

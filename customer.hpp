@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+    This class represents a single customer in the system.
+*/
 class Customer
 {
     int id;
@@ -14,6 +17,11 @@ class Customer
     public:
         // Getters
         int getId();
+        int getQuantity();
+
+        // Setters
+        void setOrderQuantity(int orderQuantity);
+        void setInvoices();
 
         // Methods
         void addInvoice(Invoice invoice);

@@ -19,7 +19,7 @@ int main(int argc, char **argv)
                 break;
             // New order
             case 'S':
-                addOrder(line, orders);
+                addOrder(line, orders, customers);
                 if (orders.back().getType() == 'X')
                     sendOrder(orders.back().getCustomerID(), orders, customers,
                               invoiceNumber);
@@ -44,13 +44,22 @@ void addCustomer(string line, vector<Customer> & customers)
          << customers.back().getId() << " added\n";
 }
 
-void addOrder(string line, vector<Order> & orders)
+void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 {
     int date = stoi(line.substr(1, 8));
     char type = line.at(9);
     int customerID = stoi(line.substr(10, 4));
     int quantity = stoi(line.substr(14, 3));
     orders.push_back(Order(date, type, customerID, quantity));
+
+    for (auto & customer: customers)
+    {
+        if (customer.getID() == customerID)
+        {
+            int currentQuantity = customer.getQuantity()
+            customer.setOrderQuantity(currentQuantity + quantity)
+        }
+    }
 
     string typeString = (type == 'N' ? ": normal order: quantity " :
                         ": EXPRESS order: quantity ");
