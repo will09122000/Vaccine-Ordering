@@ -72,6 +72,7 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
 void sendOrder(int customerID, vector<Order> & orders,
                vector<Customer> & customers, int & invoiceNumber)
 {
+    int totalQuantity = 0;
     int size = orders.size();
     int date;
 
@@ -79,6 +80,7 @@ void sendOrder(int customerID, vector<Order> & orders,
     {
         if (orders[i].getCustomerID() == customerID)
         {
+            totalQuantity += orders[i].getQuantity();
             date = orders[i].getDate();
             orders.erase(orders.begin() + i);
         }
@@ -97,6 +99,8 @@ void sendOrder(int customerID, vector<Order> & orders,
                  << ": shipped quantity " << customer.getQuantity() << "\n";
             customer.addInvoice(Invoice(invoiceNumber, customer.getId(),
                                         date, customer.getQuantity()));
+            
+            customer.setQuantity(customer.getQuantity() - totalQuantity);
             customer.printInvoice();
             invoiceNumber++;
             break;
