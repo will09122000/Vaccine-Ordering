@@ -7,7 +7,7 @@ int Customer::getId()
 
 int Customer::getQuantity()
 {
-    return this->orderQuantity
+    return this->orderQuantity;
 }
 
 void Customer::setOrderQuantity(int orderQuantity)
