@@ -2,8 +2,6 @@
 #include <order.cpp>
 #include <customer.cpp>
 
-using namespace std;
-
 void addCustomer(string line, vector<Customer> & customers);
 void addOrder(string line, vector<Order> & orders,
               vector<Customer> & customers);
