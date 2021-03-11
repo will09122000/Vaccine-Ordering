@@ -21,7 +21,6 @@ class Customer
 
         // Setters
         void setQuantity(int orderQuantity);
-        void setInvoices();
 
         // Methods
         void addInvoice(Invoice invoice);
