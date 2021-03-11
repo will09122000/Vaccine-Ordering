@@ -7,7 +7,9 @@ int main(int argc, char **argv)
     vector<Customer> customers;
     vector<Order> orders;
     int invoiceNumber = 1000;
+
     cout << "------------------------------------------------------------\n";
+
     for (vector<string>::const_iterator i = lines.begin(); i != lines.end(); i++)
     {
         string line = *i;
@@ -15,19 +17,25 @@ int main(int argc, char **argv)
         {
             // New customer
             case 'C':
+            {
                 addCustomer(line, customers);
                 break;
+            }
             // New order
             case 'S':
+            {
                 addOrder(line, orders, customers);
                 if (orders.back().getType() == 'X')
                     sendOrder(orders.back().getCustomerID(), orders, customers,
                               invoiceNumber);
                 break;
+            }
             // End-of-day
             case 'E':
+            {
                 endDay(line, customers, orders, invoiceNumber);
                 break;
+            }
         }
         cout << "------------------------------------------------------------\n";
     }
@@ -84,8 +92,9 @@ void addOrder(string line, vector<Order> & orders, vector<Customer> & customers)
         }
     }
 
-    string typeString = (type == 'N' ? ": normal order: quantity " :
-                        ": EXPRESS order: quantity ");
+    // Output line is slightly different depending on the order type
+    string typeString = (type == 'N' ? ": normal order: quantity "
+                                     : ": EXPRESS order: quantity ");
 
     cout << "OP: customer " << setfill('0') << setw(4)
          << orders.back().getCustomerID() << typeString
@@ -133,11 +142,12 @@ void sendOrder(int customerID, vector<Order> & orders,
     {
         if (customer.getId() == customerID && customer.getQuantity() > 0)
         {
-            cout << "OP: customer " << setfill('0') << setw(4) << customerID
-                 << ": shipped quantity " << customer.getQuantity() << "\n";
             customer.addInvoice(Invoice(invoiceNumber, customer.getId(),
                                         date, customer.getQuantity()));
             
+            cout << "OP: customer " << setfill('0') << setw(4) << customerID
+                 << ": shipped quantity " << customer.getQuantity() << "\n";
+
             customer.setQuantity(0);
             customer.printInvoice();
             invoiceNumber++;
@@ -164,6 +174,8 @@ void endDay(string line, vector<Customer> & customers, vector<Order> & orders,
 {
     int date = stoi(line.substr(1, 8));
     cout << "OP: end of day " << date << "\n";
+
+    // Iterate through all customers and send their current orders
     for (auto & customer: customers)
     {
         sendOrder(customer.getId(), orders, customers, invoiceNumber);
