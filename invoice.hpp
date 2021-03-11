@@ -2,8 +2,6 @@
 #include <string>
 #include <iomanip>
 
-using namespace std;
-
 /*
     This class represents a single invoice in the system.
 */

@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 /*
     This class represents a single order in the system.
 */
