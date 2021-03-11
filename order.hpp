@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 /*
     This class represents a single order in the system.
