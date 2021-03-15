@@ -1,6 +1,9 @@
+#ifndef CUSTOMER
+#define CUSTOMER
 #include <string>
 #include <vector>
 #include <invoice.cpp>
+#endif
 
 using namespace std;
 
