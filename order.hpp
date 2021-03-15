@@ -1,4 +1,7 @@
+#ifndef ORDER
+#define ORDER
 #include <iostream>
+#endif
 
 /*
     This class represents a single order in the system.

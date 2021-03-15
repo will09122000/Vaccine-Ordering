@@ -1,5 +1,8 @@
+#ifndef INVOICE
+#define INVOICE
 #include <iostream>
 #include <iomanip>
+#endif
 
 /*
     This class represents a single invoice in the system.
