@@ -1,5 +1,15 @@
 #include <ordering.hpp>
 
+/*
+    Function: main
+    ---------------------------------------------------------------------------
+    Iterates through each input line processing new customer, orders ect.
+
+    argc:    number of command-line arguments passed by the user
+    argv:    array of character pointers listing all the arguments
+
+    returns:   0
+*/
 int main(int argc, char **argv)
 {
     validateArguments(argc, argv);
